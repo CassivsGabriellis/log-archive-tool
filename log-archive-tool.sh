@@ -21,7 +21,7 @@ TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 ARCHIVE_FILE="$ARCHIVE_DIR/logs_archive_${TIMESTAMP}.tar.gz"
 
 # Compress the logs
-sudo tar --exclude="archives" -czf "$ARCHIVE_FILE" -C "$LOG_DIR" .
+tar --exclude="archives" -czf "$ARCHIVE_FILE" -C "$LOG_DIR" .
 
 # Create (or update) an operation registry file
 echo "$(date +"%Y-%m-%d %H:%M:%S") - Created file: $ARCHIVE_FILE" >> "$ARCHIVE_DIR/archive_history.log"
